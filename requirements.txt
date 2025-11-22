@@ -13,3 +13,4 @@ langchain-experimental==0.3.4
 langchain-openai==0.2.14
 langchain-text-splitters==0.3.8
 beautifulsoup4==4.14.2
+pillow==10.1.0

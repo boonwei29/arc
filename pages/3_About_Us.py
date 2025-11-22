@@ -26,6 +26,7 @@ for Information type queries
 - Linear prompt chaining using the [Agentic Risk & Capability Framework](https://govtech-responsibleai.github.io/agentic-risk-capability-framework/)
 for Application type queries
 
+### _a haiku_
 _Where building AI solutions  
 meets governing their rise,  
 we shape both code and conscience  
