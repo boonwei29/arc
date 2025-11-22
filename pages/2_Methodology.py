@@ -15,15 +15,18 @@ if not check_password():
 st.title("Methodology")
 
 st.markdown("""
-1. Uses information from the Agentic Risk & Capability Framework developed by the Responsible AI team in GovTech Singapore's AI Practice,
-which can be found [here](https://govtech-responsibleai.github.io/agentic-risk-capability-framework/)
-2. Classifies query into 'Information' (information on agentic AI risks and capabilities) or 'Application' (application on agentic AI use case)
-3. If 'Information' query type:
-    - Uses conversation history aware RAG
-    - To improve pre-retrieval process, uses HTMLHeaderTextSplitter
-    - To improve retrieval process, uses Maximum Marginal Relevance (MMR)
-4. If 'Application' query type:
-    - Asks user for more details in a form
-    - Uses linear prompt chaining, first identifying the risks for the use case, then using the identified risks and technical controls
-to draft a preliminary risk assessment
+```mermaid
+flowchart TD
+    q[/Query/] --> id1[check_query_type]
+    id1 -->|Information type| id2[conversation_rag_chain]
+    id2 --> a[/Answer/]
+    id1 -->|Application type| id3[Ask user for more details]
+    id3 --> id4[identify_risks]
+    id4 --> id5[generate_summary]
+    id5 --> a
+    id4_1[/Agentic Risk & Capability Framework XLSX/] --> id4
+    id2_1[/Agentic Risk & Capability Framework HTML/] --> id2_2[create_vector_store]
+    id2_2 --> id2_3[create_conversation_rag_chain]
+    id2_3 -->|Initialise before invoking| id2
+```
 """)
